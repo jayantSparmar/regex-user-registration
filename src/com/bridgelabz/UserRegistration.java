@@ -6,6 +6,7 @@ package com.bridgelabz;
  * As a User needs to check the regex pattern for the MobileNumber
  * As a User needs to check the regex pattern for Password rule1 minimum 8 characters
  * As a User needs to check the regex pattern for Password rule2 minimum 1 UperCase Letter
+ * As a User needs to check the regex pattern for Password rule3 which contains minimum 1 Numeric
  */
 
 /**
@@ -120,8 +121,24 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid password, it should have minimum 8 characters with 1 upper case");
     }
 
-    public static void main(String[] args) {
+    /*
+     * create method passwordRule3() which contains minimum 8 characters with 1
+     * upper case and 1 Numeric
+     */
+    public void passWordRule3() {
         Scanner sc = new Scanner(System.in);
+        System.out.print("Enter password :  ");
+        String passWord = sc.nextLine();
+        boolean check = Pattern.matches("[A-Z]{1}[a-z]{6,}[0-9]{1}", passWord);
+        if (check)
+            System.out.println("Valid");
+        else
+            System.out.println(
+                    "Please Enter a Valid password, it should have minimum 8 characters with, 1 upper case and 1 Numeric ");
+    }
+
+    public static void main(String[] args) {
+
         /*
          * It will take input from the User
          */
@@ -135,5 +152,6 @@ public class UserRegistration {
         user.mobileNum();
         user.passWordRule1();
         user.passWordRule2();
+        user.passWordRule3();
     }
 }
