@@ -1,7 +1,8 @@
 package com.bridgelabz;
 /*
- *As a User needs to  check the regex pattern for the firstName
- *As a User needs to check the regex pattern for the lastName
+ * As a User needs to check the regex pattern for the firstName
+ * As a User needs to check the regex pattern for the lastName
+ * As a User needs to check the regex pattern for the emailId
  */
 
 /**
@@ -32,6 +33,9 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid firstName with Only \"One Starting Capital\" letter");
     }
 
+    /**
+     * creating method lastNameCheck to check lastName is valid or not
+     */
     public void lastNameCheck() {
         /*
          * It will take the input from the User
@@ -49,6 +53,23 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid Last Name with Only \"One Starting Capital\" letter");
     }
 
+    /**
+     * creating method email() to check email is valid or not
+     */
+    public void email() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Email of User: ");
+        String eMail = sc.next();
+        /*
+         * As a User needs to check the regex pattern for the emailId
+         */
+        boolean check = Pattern.matches("([0-9A-Za-z])+([-+._][0-9A-Za-z]+)*" + "@([0-9A-Za-z])+[.]([a-zA-Z])+([.][A-Za-z]+)*", eMail);
+        if (check)
+            System.out.println("Valid");
+        else
+            System.out.println("Please Enter a Valid Email with Only \"example.abc@bl.co.in\" latter");
+    }
+
     public static void main(String[] args) {
 
         /*
@@ -60,5 +81,6 @@ public class UserRegistration {
 
         user.firstNameCheck();
         user.lastNameCheck();
+        user.email();
     }
 }
