@@ -1,11 +1,11 @@
 package com.bridgelabz;
-
 /*
  * As a User needs to check the regex pattern for the firstName
  * As a User needs to check the regex pattern for the lastName
  * As a User needs to check the regex pattern for the emailId
  * As a User needs to check the regex pattern for the MobileNumber
  * As a User needs to check the regex pattern for Password rule1 minimum 8 characters
+ * As a User needs to check the regex pattern for Password rule2 minimum 1 UperCase Letter
  */
 
 /**
@@ -71,7 +71,7 @@ public class UserRegistration {
         if (check)
             System.out.println("Valid");
         else
-            System.out.println("Please Enter a Valid Email with Only \"example.abc@bl.co.in\" latter");
+            System.out.println("Please Enter a Valid Email with Only \"example.abc@bl.co.in\" letter");
     }
 
     /**
@@ -84,7 +84,7 @@ public class UserRegistration {
         /*
          * As a User needs to check the regex pattern for the MobileNumber
          */
-        boolean check = Pattern.matches("^[+0-9]{2}{10}$", mobileNum);
+        boolean check = Pattern.matches("91\\s[0-9]{10}", mobileNum);
         if (check)
             System.out.println("Valid");
         else
@@ -105,6 +105,21 @@ public class UserRegistration {
             System.out.println("Please Enter a Valid password, it should have minimum 8 characters");
     }
 
+    /*
+     * create method passwordRule2() which contains minimum 8 characters and minimum
+     * 1 UperCase Letter
+     */
+    public void passWordRule2() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter password :  ");
+        String passWord = sc.nextLine();
+        boolean check = Pattern.matches("[A-Z]{1}[a-z]{7,}", passWord);
+        if (check)
+            System.out.println("Valid");
+        else
+            System.out.println("Please Enter a Valid password, it should have minimum 8 characters with 1 upper case");
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         /*
@@ -119,5 +134,6 @@ public class UserRegistration {
         user.email();
         user.mobileNum();
         user.passWordRule1();
+        user.passWordRule2();
     }
 }
